@@ -1,0 +1,10 @@
+server:
+  port: 8764
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8764/eureka
+    #Eureka通常以集群的方式部署，每台Eureka都既是服务端，也是客户端，下面两个设置为false，表明暂时只作为服务端
+    register-with-eureka: false
+    fetch-registry: false
