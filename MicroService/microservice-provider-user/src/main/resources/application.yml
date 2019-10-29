@@ -12,6 +12,8 @@ spring:
     platform: h2
     schema: classpath:schema.sql
     data: classpath:data.sql
+  application:
+    name: microservice-provider-user #建议全部 使用小写
 
 logging:
   level:
@@ -21,3 +23,18 @@ logging:
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.gkw: DEBUG
 
+#添加eureka配置
+eureka:
+    client:
+      serviceUrl:
+         defaultZone: http://admin:a123456@127.0.0.1:8764/eureka/
+    instance:
+      prefer-ip-address: true
+
+#暴露所有端点，也可以一个个暴露：management.endpoints.web.exposure.include: "env"
+#springboot 2.0 以后 查看路径为：/actuator  例如 http://127.0.0.1:7900/actuator/env
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,10 +1,22 @@
 server:
   port: 8764
 
+#开启eureka用户名和密码
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8764/eureka
+      defaultZone: http://admin:a123456@127.0.0.1:8764/eureka/
     #Eureka通常以集群的方式部署，每台Eureka都既是服务端，也是客户端，下面两个设置为false，表明暂时只作为服务端
     register-with-eureka: false
     fetch-registry: false
+    enable-self-preservation: false
+
+# 原 security.user.name/password 配置已经过时，现用如下方法配置账号密码，如若想关闭验证，去掉pom中的security即可。
+spring:
+  security:
+    user:
+      name: admin
+      password: a123456
+
+
+
