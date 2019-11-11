@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-consumer-movie" />
+        <module name="microservice-consumer-movie-ribbon" />
         <module name="microservice-discovery-eureka" />
         <module name="microservice-provider-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="microservice-consumer-movie" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon" target="1.8" />
       <module name="microservice-discovery-eureka" target="1.8" />
       <module name="microservice-provider-user" target="1.8" />
       <module name="microservice-spring-cloud" target="1.8" />
@@ -21,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="microservice-consumer-movie" options="-parameters" />
+      <module name="microservice-consumer-movie-ribbon" options="-parameters" />
       <module name="microservice-discovery-eureka" options="-parameters" />
       <module name="microservice-provider-user" options="-parameters" />
     </option>
