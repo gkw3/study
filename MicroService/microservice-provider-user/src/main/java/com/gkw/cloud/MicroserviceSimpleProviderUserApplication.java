@@ -9,6 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class MicroserviceSimpleProviderUserApplication {
 
 	public static void main(String[] args) {
+		//测试
 		SpringApplication.run(MicroserviceSimpleProviderUserApplication.class, args);
 	}
 
