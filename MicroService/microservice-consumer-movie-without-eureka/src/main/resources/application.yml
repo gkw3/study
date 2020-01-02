@@ -1,0 +1,36 @@
+
+server:
+  port: 8012
+
+spring:
+  application:
+    name: microservice-consumer-movie-without-eureka  #建议全部 使用小写
+
+#添加eureka配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:a123456@127.0.0.1:8764/eureka/
+  instance:
+    prefer-ip-address: true
+
+#暴露所有端点，也可以一个个暴露：management.endpoints.web.exposure.include: "env"
+#springboot 2.0 以后 查看路径为：/actuator  例如 http://127.0.0.1:7900/actuator/env
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#用配置文件配置负载均衡策略
+microservice-provider-user:
+    ribbon:
+      #响应时间加成规则
+      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+      #当关闭注册中心时，ribbon读取此处配置
+      listOfServers: localhost:7901
+
+#关闭注册中心
+ribbon:
+  eureka:
+    enabled: false
